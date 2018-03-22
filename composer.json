@@ -1,0 +1,25 @@
+{
+    "name": "gustavorglima/laravel-json-sqs",
+    "type": "library",
+    "description": "Laravel 5 SQS connector that uses JSON to transmit messages",
+    "keywords": ["laravel", "json", "sqs", "aws"],
+    "homepage": "https://github.com/gustavorglima/laravel-json-sqs",
+    "authors": [
+        {
+            "name": "Gustavo Lima",
+            "email": "me@gustavorglima.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/support": "5.*",
+        "illuminate/queue": "5.*",
+        "illuminate/bus": "5.*",
+        "aws/aws-sdk-php": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GustavoLima\\JsonSQS\\": "src/"
+        }
+    }
+}
