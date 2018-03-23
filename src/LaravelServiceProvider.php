@@ -20,7 +20,7 @@ class LaravelServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/json-sqs.php' => config_path('json-sqs.php')
+            dirname(__FILE__) . '/config/json-sqs.php' => config_path('json-sqs.php')
         ]);
 
         Queue::after(function (JobProcessed $event) {
