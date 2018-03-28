@@ -3,7 +3,7 @@
 namespace GustavoLima\JsonSQS;
 
 use Illuminate\Support\Facades\Queue;
-use GustavoLima\JsonSQS\Sqs\Connector;
+use GustavoLima\JsonSQS\SQS\Connector;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Queue\Events\JobProcessed;
 
