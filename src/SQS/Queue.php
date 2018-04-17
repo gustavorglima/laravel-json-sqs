@@ -6,7 +6,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Queue\Jobs\SqsJob;
 use GustavoLima\JsonSQS\Dispatcher;
-use Illuminate\Support\Facades\Config;
 
 /**
  * Class CustomSqsQueue
@@ -47,7 +46,7 @@ class Queue extends SqsQueue
         $messages = Arr::get($response, 'Messages', []);
 
         if (count($messages)) {
-            return new SqsJob(
+            return new Job(
                 $this->container, $this->sqs, $this->payload(Arr::first($messages)), $this->connectionName, $queueUrl
             );
         }
@@ -78,6 +77,10 @@ class Queue extends SqsQueue
         $handler = Arr::get(config('json-sqs.handlers'), $job, null);
 
         if (!$handler) {
+            if (array_search(str_replace('@handle', '', $job), config('json-sqs.handlers'))) {
+                return $job;
+            }
+
             throw new \Exception("Job handler not found for job '{$job}'!");
         }
 

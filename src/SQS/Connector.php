@@ -25,10 +25,8 @@ class Connector extends SqsConnector
             $config['credentials'] = Arr::only($config, ['key', 'secret']);
         }
 
-        $queue = new Queue(
+        return new Queue(
             new SqsClient($config), $config['queue'], Arr::get($config, 'prefix', '')
         );
-
-        return $queue;
     }
 }

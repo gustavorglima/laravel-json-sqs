@@ -23,6 +23,6 @@ return [
     |
     */
     'handlers' => [
-        //'exemple-job' => App\Jobs\ExampleJob::class,
+        
     ]
 ];
