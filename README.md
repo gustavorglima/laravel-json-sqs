@@ -30,11 +30,11 @@ Create `json-sqs` connection on `config/queue.php`:
 ```
 'json-sqs' => [
     'driver' => 'json-sqs',
-    'key' => env('QUEUE_SQS_KEY'),
-    'secret' => env('SQS_QUEUE_SECRET'),
-    'prefix' => env('SQS_QUEUE_PREFIX'),
-    'queue' => env('SQS_QUEUE_QUEUE'),
-    'region' => env('SQS_QUEUE_REGION'),
+    'key' => env('SQS_KEY'),
+    'secret' => env('SQS_SECRET'),
+    'prefix' => env('SQS_PREFIX'),
+    'queue' => env('SQS_QUEUE'),
+    'region' => env('SQS_REGION'),
 ],
 ```
 
@@ -45,11 +45,11 @@ QUEUE_DRIVER=json-sqs
 
 And configure your credentials:
 ```
-SQS_QUEUE_KEY=
-SQS_QUEUE_SECRET=
-SQS_QUEUE_PREFIX=
-SQS_QUEUE_QUEUE=
-SQS_QUEUE_REGION=
+SQS_KEY=
+SQS_SECRET=
+SQS_PREFIX=
+SQS_QUEUE=
+SQS_REGION=
 ```
 ### Creating a Job
 To read published messages on SQS Queue we need to create a Job:
