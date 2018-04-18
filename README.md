@@ -32,7 +32,7 @@ php artisan queue:failed-table
 ```
 
 Create `json-sqs` connection on `config/queue.php`:
-```
+```php
 'json-sqs' => [
     'driver' => 'json-sqs',
     'key' => env('SQS_KEY'),
@@ -63,7 +63,7 @@ php artisan make:job TestJob
 ```
 
 You handle method must be like that:
-```
+```php
 public function handle(Job $job, $data)
 {
     dd($data); // Just to debug received message
@@ -71,13 +71,13 @@ public function handle(Job $job, $data)
 ```
 
 Open `config/json-sqs.php` and add:
-```
+```php
 'test-job' => App\Jobs\TestJob::class,
 ```
 
 ### Publishing a message
 To publish a message it's pretty simple, you just need to pass the job name that was specified in `config/json-sqs.php` and the data, example:
-```
+```php
 dispatch(
     new Dispatcher('test-job', [
         'some' => 'data'
