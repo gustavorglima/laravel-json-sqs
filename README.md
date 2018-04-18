@@ -26,6 +26,11 @@ Publish `config/json-sqs.php`
 php artisan vendor:publish --provider="GustavoLima\JsonSQS\LaravelServiceProvider"
 ```
 
+Create failed table:
+```
+php artisan queue:failed-table
+```
+
 Create `json-sqs` connection on `config/queue.php`:
 ```
 'json-sqs' => [
@@ -79,3 +84,10 @@ dispatch(
     ])
 );
 ```
+
+## Start the worker
+```
+php artisan queue:work json-sqs --tries=3
+```
+
+Obs. In production we recommend to use [Supervisor](http://supervisord.org/).
