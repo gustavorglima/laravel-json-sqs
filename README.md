@@ -48,13 +48,13 @@ Set queue driver on `.env`
 QUEUE_DRIVER=json-sqs
 ```
 
-And configure your credentials:
+And configure your credentials (Example):
 ```
-SQS_KEY=
-SQS_SECRET=
-SQS_PREFIX=
-SQS_QUEUE=
-SQS_REGION=
+SQS_KEY=ABCDEFGHIJKLMN
+SQS_SECRET=abCDEFghiJKlmNOpqRStuVWXyzabCDEFghiJK
+SQS_PREFIX=https://sqs.us-east-1.amazonaws.com/1234567890
+SQS_QUEUE=sqs-queue-name
+SQS_REGION=us-east-1
 ```
 ### Creating a Job
 To read published messages on SQS Queue we need to create a Job:
